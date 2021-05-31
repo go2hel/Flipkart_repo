@@ -1,7 +1,7 @@
 package com.sample.constant;
 
 public enum ModeOfPayment {
-    DEBIT_CARD(1),CREDIT_CARD(2),CASH(3),UPI(4);
+    DEBIT_CARD(1),CREDIT_CARD(2),UPI(3);
     private final int mop;
 
     ModeOfPayment(int i){

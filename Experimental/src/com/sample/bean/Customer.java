@@ -27,6 +27,10 @@ public class Customer {
         this.ID = ID;
     }
 
+    public Role getRole() {
+        return role;
+    }
+
     public String getPassword() {
         return password;
     }

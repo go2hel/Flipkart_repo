@@ -22,6 +22,10 @@ public class Admin {
         return ID;
     }
 
+    public Role getRole() {
+        return role;
+    }
+
     public void setID(String ID) {
         this.ID = ID;
     }
