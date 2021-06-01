@@ -25,4 +25,12 @@ public class SQLQueries {
     public static final String REMOVE_ITEM_CART = "delete from cart where id=? and name=?";
     public static final String GET_ITEM = "select * from items where name=? and count>=?";
 
+    //Payment Dao Operations
+    public static final String MAKE_PAYMENT = "update users set balance=balance-? where id=?";
+    public static final String EMPTY_CART = "delete from cart where id=?";
+
+    //Notification Dao Operations
+    public static final String PAYMENT_NOTIFICATION = "insert into notifications (notfID,id,message) values (?,?,?)";
+    public static final String VIEW_NOTIFICATIONS = "select * from notifications where id=?";
+
 }

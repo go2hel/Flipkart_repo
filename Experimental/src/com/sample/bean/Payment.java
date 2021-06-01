@@ -42,4 +42,8 @@ public class Payment {
         this.paymentID = Integer.toString(localDate.getYear()) + Integer.toString(localDate.getMonthValue())
                 + Integer.toString(localDate.getDayOfMonth()) + this.custID;
     }
+
+    public String getPaymentID() {
+        return paymentID;
+    }
 }

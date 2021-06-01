@@ -29,4 +29,8 @@ public class Notification {
     public void setCustID(String custID) {
         this.custID = custID;
     }
+
+    public String getNotificationID() { return notificationID; }
+
+    public void setNotificationID(String notificationID) { this.notificationID = notificationID; }
 }

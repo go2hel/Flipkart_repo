@@ -129,7 +129,7 @@ public class AdminDaoOperartion implements AdminDaoInterface{
         }
     }
 
-    private int getItemCount(String name) throws ItemNotFoundException {
+    public int getItemCount(String name) throws ItemNotFoundException {
         Connection connection = DBUtil.getConnection();
         try {
             PreparedStatement statement = connection.prepareStatement(SQLQueries.GET_ITEM_COUNT);
