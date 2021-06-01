@@ -20,7 +20,7 @@ public class PaymentOperation implements PaymentInterface{
     }
 
     @Override
-    public void makePayment(String custID, ModeOfPayment modeOfPayment) throws PaymentNotDoneException {
-        PaymentDaoOperation.getInstance().makePayment(custID,modeOfPayment);
+    public void makePayment(String custID) throws PaymentNotDoneException {
+        PaymentDaoOperation.getInstance().makePayment(custID);
     }
 }

@@ -8,6 +8,6 @@ public class CustomerNotFoundException extends Exception {
     }
 
     public String getMessage(){
-        return "Customer with custID " + custID + " not found.";
+        return "User with custID " + custID + " not found.";
     }
 }

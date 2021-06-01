@@ -3,11 +3,11 @@ package com.sample.bean;
 import com.sample.constant.ModeOfPayment;
 
 import java.time.LocalDate;
+import java.time.LocalTime;
 
 public class Payment {
     private String paymentID;
     private String custID;
-    private ModeOfPayment modeOfPayment;
     private float amount;
 
     public String getCustID() {
@@ -18,14 +18,6 @@ public class Payment {
         this.custID = custID;
     }
 
-    public ModeOfPayment getModeOfPayment() {
-        return modeOfPayment;
-    }
-
-    public void setModeOfPayment(ModeOfPayment modeOfPayment) {
-        this.modeOfPayment = modeOfPayment;
-    }
-
     public float getAmount() {
         return amount;
     }
@@ -34,13 +26,14 @@ public class Payment {
         this.amount = amount;
     }
 
-    public Payment(String custID, ModeOfPayment modeOfPayment, float amount){
+    public Payment(String custID, float amount){
         this.amount=amount;
-        this.modeOfPayment = modeOfPayment;
         this.custID = custID;
         LocalDate localDate = LocalDate.now();
+        LocalTime localTime = LocalTime.now();
         this.paymentID = Integer.toString(localDate.getYear()) + Integer.toString(localDate.getMonthValue())
-                + Integer.toString(localDate.getDayOfMonth()) + this.custID;
+                + Integer.toString(localDate.getDayOfMonth()) + this.custID +
+                localTime.getHour() + "#" + localTime.getMinute() + "#" + localTime.getSecond();
     }
 
     public String getPaymentID() {

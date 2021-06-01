@@ -30,4 +30,9 @@ public class NotificationOperation implements NotificationInterface{
     public List<Notification> viewNotifications(String custID) {
         return NotificationDaoOperation.getInstance().viewNotifications(custID);
     }
+
+    @Override
+    public void sendNotification(Notification notification) {
+        NotificationDaoOperation.getInstance().sendNotification(notification);
+    }
 }

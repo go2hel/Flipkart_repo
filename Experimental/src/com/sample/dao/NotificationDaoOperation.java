@@ -30,14 +30,10 @@ public class NotificationDaoOperation implements NotificationDaoInterface {
     }
 
     @Override
-    public void paymentNotification(Payment payment) {
-        String message = "Payment done with reference ID "+ payment.getPaymentID() + " of amount "
-                + payment.getAmount();
-
-        Notification notification = new Notification(payment.getCustID(),message);
+    public void sendNotification(Notification notification) {
         Connection connection = DBUtil.getConnection();
         try {
-            PreparedStatement statement = connection.prepareStatement(SQLQueries.PAYMENT_NOTIFICATION);
+            PreparedStatement statement = connection.prepareStatement(SQLQueries.SEND_NOTIFICATION);
 
             statement.setString(1,notification.getNotificationID());
             statement.setString(2,notification.getCustID());
@@ -56,6 +52,15 @@ public class NotificationDaoOperation implements NotificationDaoInterface {
                 logger.error(e.getMessage());
             }
         }
+    }
+
+    @Override
+    public void paymentNotification(Payment payment) {
+        String message = "Payment done with reference ID "+ payment.getPaymentID() + " of amount "
+                + payment.getAmount();
+
+        Notification notification = new Notification(payment.getCustID(),message);
+        sendNotification(notification);
     }
 
     @Override

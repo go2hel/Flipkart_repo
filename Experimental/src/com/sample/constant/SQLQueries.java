@@ -30,7 +30,7 @@ public class SQLQueries {
     public static final String EMPTY_CART = "delete from cart where id=?";
 
     //Notification Dao Operations
-    public static final String PAYMENT_NOTIFICATION = "insert into notifications (notfID,id,message) values (?,?,?)";
+    public static final String SEND_NOTIFICATION = "insert into notifications (notfID,id,message) values (?,?,?)";
     public static final String VIEW_NOTIFICATIONS = "select * from notifications where id=?";
 
 }

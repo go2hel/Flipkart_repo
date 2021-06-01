@@ -1,6 +1,7 @@
 package com.sample.bean;
 
 import java.time.LocalDate;
+import java.time.LocalTime;
 
 public class Notification {
     private String message;
@@ -11,7 +12,9 @@ public class Notification {
         this.custID = custID;
         this.message = message;
         LocalDate localDate = LocalDate.now();
-        this.notificationID = Integer.toString(localDate.getYear()) + Integer.toString(localDate.getDayOfYear())+this.custID;
+        LocalTime localTime = LocalTime.now();
+        this.notificationID = Integer.toString(localDate.getYear()) + Integer.toString(localDate.getDayOfYear())+this.custID +
+        localTime.getHour() + "#" + localTime.getMinute() + "#" + localTime.getSecond();
     }
 
     public String getMessage() {

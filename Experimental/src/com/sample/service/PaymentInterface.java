@@ -5,6 +5,6 @@ import com.sample.exceptions.PaymentNotDoneException;
 
 public interface PaymentInterface {
 
-    public void makePayment(String custID, ModeOfPayment modeOfPayment) throws PaymentNotDoneException;
+    public void makePayment(String custID) throws PaymentNotDoneException;
 
 }

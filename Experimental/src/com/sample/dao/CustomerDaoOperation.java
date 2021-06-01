@@ -1,6 +1,8 @@
 package com.sample.dao;
 
 import com.sample.bean.Item;
+import com.sample.bean.Notification;
+import com.sample.constant.ModeOfPayment;
 import com.sample.constant.SQLQueries;
 import com.sample.exceptions.CustomerNotFoundException;
 import com.sample.exceptions.ItemNotAddedException;
@@ -139,7 +141,7 @@ public class CustomerDaoOperation implements CustomerDaoInterface{
     }
 
     @Override
-    public void addMoney(String custID, float amount) {
+    public void addMoney(String custID, float amount, ModeOfPayment modeOfPayment) {
         Connection connection = DBUtil.getConnection();
         try {
             float current = this.viewBalance(custID);
@@ -151,6 +153,25 @@ public class CustomerDaoOperation implements CustomerDaoInterface{
             int stats = statement.executeUpdate();
 
             logger.info(stats==1?"balance updated to " + (current+amount):"Balance not updated");
+
+            String message = "";
+
+            switch (modeOfPayment){
+                case UPI:
+                    message = "Added Rs." + amount + " via UPI";
+                    break;
+
+                case DEBIT_CARD:
+                    message = "Added Rs." + amount + " via debit card";
+                    break;
+
+                case CREDIT_CARD:
+                    message = "Added Rs." + amount + " via credit card";
+                    break;
+            }
+
+            Notification notification = new Notification(custID,message);
+            NotificationDaoOperation.getInstance().sendNotification(notification);
 
         }catch (Exception e){
             logger.error(e.getMessage());

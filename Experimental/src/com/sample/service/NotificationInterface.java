@@ -11,4 +11,6 @@ public interface NotificationInterface {
 
     public List<Notification> viewNotifications(String custID);
 
+    public void sendNotification(Notification notification);
+
 }

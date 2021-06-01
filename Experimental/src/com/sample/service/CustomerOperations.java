@@ -1,6 +1,7 @@
 package com.sample.service;
 
 import com.sample.bean.Item;
+import com.sample.constant.ModeOfPayment;
 import com.sample.dao.CustomerDaoOperation;
 import com.sample.exceptions.ItemNotAddedException;
 import com.sample.exceptions.ItemNotDeletedException;
@@ -48,7 +49,7 @@ public class CustomerOperations implements CustomerInterface{
     }
 
     @Override
-    public void addMoney(String custID, float amount) {
-        CustomerDaoOperation.getInstance().addMoney(custID,amount);
+    public void addMoney(String custID, float amount, ModeOfPayment modeOfPayment) {
+        CustomerDaoOperation.getInstance().addMoney(custID,amount,modeOfPayment);
     }
 }

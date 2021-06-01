@@ -1,6 +1,7 @@
 package com.sample.dao;
 
 import com.sample.bean.Item;
+import com.sample.constant.ModeOfPayment;
 import com.sample.exceptions.ItemNotAddedException;
 import com.sample.exceptions.ItemNotDeletedException;
 
@@ -18,6 +19,6 @@ public interface CustomerDaoInterface {
 
     public float viewBalance(String custID);
 
-    public void addMoney(String custID,float amount);
+    public void addMoney(String custID, float amount, ModeOfPayment modeOfPayment);
 
 }

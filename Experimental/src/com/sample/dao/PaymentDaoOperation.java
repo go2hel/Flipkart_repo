@@ -31,7 +31,7 @@ public class PaymentDaoOperation implements PaymentDaoInterface{
     }
 
     @Override
-    public void makePayment(String custID, ModeOfPayment modeOfPayment) throws PaymentNotDoneException {
+    public void makePayment(String custID) throws PaymentNotDoneException {
         List<Item> items = CustomerDaoOperation.getInstance().viewCart(custID);
         float payment = calculate(custID,items);
         if(!isPossible(payment,custID)){
@@ -51,7 +51,7 @@ public class PaymentDaoOperation implements PaymentDaoInterface{
 
             logger.info(stats==1?"payment done":"payment not done");
 
-            Payment payment1 = new Payment(custID,modeOfPayment,payment);
+            Payment payment1 = new Payment(custID,payment);
 
             NotificationDaoOperation.getInstance().paymentNotification(payment1);
 
