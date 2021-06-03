@@ -2,7 +2,6 @@ package com.sample.client;
 
 import com.sample.bean.Customer;
 import com.sample.bean.Item;
-import com.sample.exceptions.ItemNotDeletedException;
 import com.sample.service.AdminOperations;
 
 import java.util.List;
@@ -10,14 +9,15 @@ import java.util.Scanner;
 
 public class AdminMenu {
 
-    boolean looping = true;
+    private boolean looping = true;
 
     private Scanner scanner = new Scanner(System.in);
 
     public void MainMenu(){
         while (looping){
             System.out.println();
-            System.out.println("==============================");
+            System.out.println("==============================\n");
+            System.out.println("ADMIN MENU");
             System.out.println("1. View pending customers");
             System.out.println("2. Approve customer");
             System.out.println("3. Ban customer");
@@ -25,8 +25,11 @@ public class AdminMenu {
             System.out.println("5. Add Item's count");
             System.out.println("6. Remove Item");
             System.out.println("7. View Items");
-            System.out.println("8. Logout");
+            System.out.println("8. Logout\n");
             System.out.println("==============================");
+
+            System.out.println();
+            System.out.println("Enter your choice");
 
             String choice = scanner.nextLine();
 
@@ -73,6 +76,7 @@ public class AdminMenu {
     private void viewPending(){
         List<Customer> customers = AdminOperations.getInstance().viewPending();
 
+        System.out.println();
         System.out.printf("%-20s%-30s\n","ID", "Name");
         customers.forEach(customer -> System.out.printf("%-20s%-30s\n",
                 customer.getID(),customer.getName()));
@@ -149,6 +153,7 @@ public class AdminMenu {
     private void viewItems(){
         List<Item> itemList = AdminOperations.getInstance().viewItems();
 
+        System.out.println();
         System.out.printf("%-15s%-15s%-15s\n","Name","Price","Availability");
         itemList.forEach(item -> System.out.printf("%-15s%-15.2f%-15d\n",item.getName(),
                 item.getPrice(),item.getCount()));

@@ -13,7 +13,7 @@ import java.util.Scanner;
 
 public class CustomerMenu {
 
-    private String custID;
+    private final String custID;
 
     public CustomerMenu(String custID){
         this.custID = custID;
@@ -21,10 +21,10 @@ public class CustomerMenu {
 
     Scanner scanner = new Scanner(System.in);
 
-    boolean looping = true;
+    private boolean looping = true;
 
     public void MainMenu(){
-        boolean approved = false;
+        boolean approved;
 
         try {
             approved = UserOperations.getInstance().isApproved(custID);
@@ -41,7 +41,8 @@ public class CustomerMenu {
 
         while (looping){
             System.out.println();
-            System.out.println("==========================================");
+            System.out.println("==========================================\n");
+            System.out.println("CUSTOMER MENU");
             System.out.println("1. View Items");
             System.out.println("2. View Cart");
             System.out.println("3. Add Item to cart");
@@ -50,8 +51,11 @@ public class CustomerMenu {
             System.out.println("6. Add money");
             System.out.println("7. Check Out");
             System.out.println("8. View Notifications");
-            System.out.println("9. Logout");
+            System.out.println("9. Logout\n");
             System.out.println("===========================================");
+
+            System.out.println();
+            System.out.println("Enter your choice");
 
             String choice = scanner.nextLine();
 
@@ -231,9 +235,9 @@ public class CustomerMenu {
     private void viewNotifications(){
         List<Notification> notifications = NotificationOperation.getInstance().viewNotifications(custID);
 
-        System.out.printf("%-20s%-60s\n","Notification ID", "Message");
+        System.out.printf("%-30s%-60s\n","Notification ID", "Message");
 
-        notifications.forEach(notification -> System.out.printf("%-20s%-60s\n",notification.getNotificationID(),
+        notifications.forEach(notification -> System.out.printf("%-30s%-60s\n",notification.getNotificationID(),
                 notification.getMessage()));
 
     }

@@ -2,16 +2,9 @@ package com.sample.client;
 
 import com.sample.bean.Customer;
 import com.sample.constant.Gender;
-import com.sample.constant.ModeOfPayment;
 import com.sample.constant.Role;
-import com.sample.exceptions.CustomerAlreadyExistsException;
-import com.sample.exceptions.CustomerNotAddedException;
-import com.sample.exceptions.PaymentNotDoneException;
-import com.sample.service.CustomerOperations;
-import com.sample.service.PaymentOperation;
 import com.sample.service.UserOperations;
 
-import javax.sound.midi.Soundbank;
 import java.util.Scanner;
 
 public class ClientApplication {
@@ -20,10 +13,11 @@ public class ClientApplication {
     public static void main(String[] args) {
         boolean looping = true;
         while (looping){
-            System.out.println("=====================================");
+            System.out.println();
+            System.out.println("=====================================\n");
             System.out.println("1. Login");
             System.out.println("2. Sign Up");
-            System.out.println("3. Exit");
+            System.out.println("3. Exit\n");
             System.out.println("=====================================");
             System.out.println();
             System.out.println("Enter your choice : ");
@@ -59,9 +53,11 @@ public class ClientApplication {
             Role role =  UserOperations.getInstance().login(userID,password);
 
             if(role==Role.CUSTOMER){
-
+                CustomerMenu customerMenu = new CustomerMenu(userID);
+                customerMenu.MainMenu();
             }else {
-                System.out.println("Admin logged in");
+                AdminMenu adminMenu = new AdminMenu();
+                adminMenu.MainMenu();
             }
 
         }catch (Exception e){
