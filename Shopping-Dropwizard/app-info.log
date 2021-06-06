@@ -1,0 +1,18 @@
+[INFO ] 2021-06-06 14:17:08.905 [dw-34 - POST /admin/addItem] AdminDaoOperation - 1 Item added
+[INFO ] 2021-06-06 14:18:46.073 [dw-34 - PUT /admin/addCount?name=Jalebi&count=5] AdminDaoOperation - 1 item updated
+[ERROR] 2021-06-06 14:19:02.592 [dw-33 - PUT /admin/addCount?name=Jaleb&count=5] AdminDaoOperation - Illegal operation on empty result set.
+[ERROR] 2021-06-06 14:19:02.592 [dw-33 - PUT /admin/addCount?name=Jaleb&count=5] AdminDaoOperation - Item with name Jaleb not found.
+[INFO ] 2021-06-06 14:20:05.015 [dw-23 - DELETE /admin/removeItem?name=Jalebi] AdminDaoOperation - 1 item removed.
+[INFO ] 2021-06-06 14:22:24.927 [dw-33 - PUT /admin/approveCustomer?cid=boneman] AdminDaoOperation - 1 approval done
+[INFO ] 2021-06-06 14:23:18.171 [dw-31 - DELETE /admin/banCustomer?cid=mon] AdminDaoOperation - 1 customer deleted.
+[INFO ] 2021-06-06 14:23:30.374 [dw-31 - PUT /admin/approveCustomer?cid=boneman] AdminDaoOperation - 1 approval done
+[ERROR] 2021-06-06 14:30:26.967 [dw-31 - GET /client/login?id=joey.tribbian&password=abc] UserDaoOperation - Illegal operation on empty result set.
+[ERROR] 2021-06-06 14:31:38.263 [dw-19 - GET /client/signUp] UserDaoOperation - Duplicate entry 'joey.tribbiani' for key 'users.PRIMARY'
+[ERROR] 2021-06-06 14:34:11.410 [dw-33 - GET /client/signUp] UserDaoOperation - Duplicate entry 'joey.tribbiani' for key 'users.PRIMARY'
+[ERROR] 2021-06-06 14:44:12.148 [dw-34 - GET /client/login?id=boneman&password=dino] UserDaoOperation - Invalid Credentials
+[ERROR] 2021-06-06 14:44:23.945 [dw-31 - GET /client/login?id=bonema&password=dinosaur] UserDaoOperation - User with custID bonema not found.
+[ERROR] 2021-06-06 14:45:22.259 [dw-20 - GET /client/signUp] UserDaoOperation - Duplicate entry 'joey.tribbiani' for key 'users.PRIMARY'
+[ERROR] 2021-06-06 14:48:24.920 [dw-33 - PUT /customer/checkOut?id=mon] CustomerDaoOperation - Illegal operation on empty result set.
+[INFO ] 2021-06-06 14:48:25.008 [dw-33 - PUT /customer/checkOut?id=mon] PaymentDaoOperation - payment not done
+[INFO ] 2021-06-06 14:48:25.086 [dw-33 - PUT /customer/checkOut?id=mon] NotificationDaoOperation - 1 notification sent
+[ERROR] 2021-06-06 14:51:08.353 [dw-19 - GET /customer/viewBalance?id=mon] CustomerDaoOperation - Illegal operation on empty result set.
